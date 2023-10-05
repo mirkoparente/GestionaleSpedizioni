@@ -1,0 +1,92 @@
+﻿@model GestionaleSpedizioni.Models.Clienti
+
+@{
+    ViewBag.Title = "CreaCliente";
+}
+
+@using (Html.BeginForm())
+{
+@Html.AntiForgeryToken()
+
+    <section class="py-3">
+        <div class="container h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-lg-12 col-xl-11">
+                    <div class="card text-black" style="border-radius: 25px;">
+                        <div class="card-body py-4">
+                            <div class="row justify-content-center">
+                                <div class="col col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+
+                                    <p class="text-center h1 fw-bold mb-5 mx-1">Nuovo Cliente</p>
+                                    @if (ViewBag.messaggio != null)
+                                    {
+
+                                    <p class="alert alert-danger">@ViewBag.mesaggio</p>
+                                    }
+                                    @Html.HiddenFor(model => model.IdClienti, new { htmlAttributes = new { @class = "form-control" } })
+
+                                    @Html.ValidationSummary(true,"", new {@class="text-danger"})
+                                    <div class="d-flex flex-row align-items-center w-100 mb-4">
+                                        @Html.TextBoxFor(m => m.Nome, new { @class = "form-control mw-100", @placeholder = "Nominativo" })
+                                        @Html.ValidationMessageFor(m => m.Nome, "", new { @class = "text-danger" })
+
+                                    </div>
+
+
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <div class="form-outline flex-fill mb-0">
+                                            @Html.TextBoxFor(m => m.CodiceFiscaleOPartitaIva, new { @class = "form-control mw-100", @placeholder = "Codice Fiscale O PartitaIva" })
+                                            @Html.ValidationMessageFor(m => m.CodiceFiscaleOPartitaIva, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <div class="form-outline flex-fill mb-0">
+                                            @Html.TextBoxFor(m => m.Indirizzo, new { @class = "form-control mw-100", @placeholder = "Indirizzo" })
+                                            @Html.ValidationMessageFor(m => m.Indirizzo, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <div class="form-outline flex-fill mb-0">
+                                            @Html.TextBoxFor(m => m.Citta, new { @class = "form-control mw-100", @placeholder = "Città" })
+                                            @Html.ValidationMessageFor(m => m.Citta, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <div class="form-outline flex-fill mb-0">
+                                            @Html.TextBoxFor(m => m.Tipologia, new { @class = "form-control mw-100", @placeholder = "Tipologia" })
+                                            @Html.ValidationMessageFor(m => m.Tipologia, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex justify-content-start mb-3 mb-lg-4">
+                                        <button type="submit" class="btn btn-outline-danger">Aggiungi Cliente</button>
+                                    </div>
+
+
+
+                                </div>
+                                <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+
+                                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
+                                         class="img-fluid" alt="Sample image">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

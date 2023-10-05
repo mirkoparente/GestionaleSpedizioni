@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Applicazione ASP.NET</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body class="d-flex flex-column justify-content-between" style="height:100vh">
+    @if (User.IsInRole("Admin"))
+    {
+
+
+        <header class="p-3 position-sticky top-0 bg-white">
+            <nav class="navbar navbar-expand-lg">
+
+                <a href="#" class="d-inline-flex link-body-emphasis text-decoration-none w-25">
+                    <img class="navbar-brand w-50" src="https://www.caringwithstyle.com/wp-content/uploads/2019/05/corriere-espresso.jpg" alt="Alternate Text" />
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span><i class="bi bi-list"></i></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <div class=" justify-content-lg-end justify-content-center d-flex w-100">
+                        <ul class="navbar nav d-flex flex-column flex-lg-row">
+                            <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link text-black " })</li>
+                            <li>@Html.ActionLink("Cerca Spedizione", "CercaSpedizione", "Home", new { area = "" }, new { @class = "nav-link text-black" })</li>
+                            <li> @Html.ActionLink("Clienti", "ListaClienti", "Admin", new { area = "" }, new { @class = "nav-link me-3 text-black" })</li>
+
+                            <li>@Html.ActionLink("Gestione Spedizioni", "ListaSpedizioni", "Spedizioni", new { area = "" }, new { @class = "nav-link me-3 text-black" }) </li>
+
+                            <li>@Html.ActionLink("Logout", "Logout", "Admin", new { area = "" }, new { @class = "nav-link me-3 text-black btn btn-outline-danger" })</li>
+                        </ul>
+
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+    }
+    else
+    {
+
+        <header class="p-3 position-sticky top-0 bg-white">
+            <nav class="navbar navbar-expand-lg">
+
+                <a href="#" class="d-inline-flex link-body-emphasis text-decoration-none w-25">
+                    <img class="navbar-brand w-50" src="https://www.caringwithstyle.com/wp-content/uploads/2019/05/corriere-espresso.jpg" alt="Alternate Text" />
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span><i class="bi bi-list"></i></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <div class="justify-content-lg-end justify-content-center d-flex w-100">
+
+                        <ul class="navbar nav d-flex  flex-column flex-lg-row">
+                            <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link text-dark" })</li>
+                            <li>@Html.ActionLink("Cerca Spedizione", "CercaSpedizione", "Home", new { area = "" }, new { @class = "nav-link text-dark" })</li>
+                            <li>
+                                @Html.ActionLink("Area Admin", "Login", "Home", new { area = "" }, new { @class = "nav-link me-3 btn btn-outline-danger text-dark" })
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+  
+
+    }
+
+    <div class="container-fluid body-content flex-grow-1 z">
+        @RenderBody()
+    </div>
+
+    <footer class="p-3 text-center bg-dark text-bg-dark">
+        <p>&copy; @DateTime.Now.Year - Bartolucci</p>
+        <p>P.IVA 123465678</p>
+    </footer>
+
+
+    @Scripts.Render("~/bundles/jquery")
+
+    @Scripts.Render("~/bundles/bootstrap")
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

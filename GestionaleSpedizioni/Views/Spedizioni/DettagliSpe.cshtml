@@ -1,0 +1,102 @@
+﻿@model GestionaleSpedizioni.Models.Spedizioni
+
+@{
+    ViewBag.Title = "DettagliSpe";
+}
+
+<div class="container">
+
+<div class="row">
+    <div class="col">
+
+    <h4>Dettaglio Spedizione</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IdSpedizione)
+        </dt>
+
+
+
+        <dd>
+            @Html.DisplayFor(model => model.IdSpedizione)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NomeDestinatario)
+        </dt>
+
+        <dd class="text-capitalize">
+            @Html.DisplayFor(model => model.NomeDestinatario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataSpedizione)
+        </dt>
+
+        <dd>
+            @Model.DataSpedizione.ToShortDateString()
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Peso)
+        </dt>
+
+        <dd>
+            @Model.Peso Kg
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Destinazione)
+        </dt>
+
+        <dd class="text-capitalize">
+            @Html.DisplayFor(model => model.Destinazione)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IndirizzoDest)
+        </dt>
+
+        <dd class="text-capitalize">
+            @Html.DisplayFor(model => model.IndirizzoDest)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CostoSpedizione)
+        </dt>
+
+        <dd>
+            @Model.CostoSpedizione.ToString("C2")
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataConsegna)
+        </dt>
+
+        <dd>
+            @Model.DataConsegna.ToShortDateString()
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdClienti)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+
+
+
+    </dl>
+    </div>
+    <div class="col">
+
+        @{
+
+            Html.RenderAction("GetPartial");
+        }
+    </div>
+</div>
+</div>
+

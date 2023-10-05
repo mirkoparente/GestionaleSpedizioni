@@ -1,0 +1,56 @@
+﻿@model GestionaleSpedizioni.Models.Admin
+
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2 class="text-center">Login</h2>
+@if (ViewBag.messaggio != null)
+{
+
+    <p class="alert alert-danger">@ViewBag.messaggio</p>
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <section class="vh-100">
+        <div class="container-fluid h-custom">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-md-9 col-lg-6 col-xl-5">
+                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+                         class="img-fluid" alt="Sample image">
+                </div>
+                <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+                    @Html.ValidationSummary(true, "", new {@class="text-danger"})
+                    @Html.HiddenFor(m => m.IdUser)
+                    <!-- Email input -->
+                    <div class="form-outline mb-4">
+                        @Html.LabelFor(m => m.Username, new { @class = "form-label" })
+                        @Html.TextBoxFor(m => m.Username, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Username, "", new { @class = "text-danger" })
+                    </div>
+
+                    <!-- Password input -->
+                    <div class="form-outline mb-3">
+                        @Html.LabelFor(m => m.Password, new { @class = "form-label" })
+                        @Html.TextBoxFor(m => m.Password, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+
+                    </div>
+
+
+                    @Html.HiddenFor(m => m.Ruolo)
+                    <div class="text-center text-lg-start mt-4 pt-2">
+                        <button type="submit" class="btn btn-outline-danger btn-lg"
+                                style="padding-left: 2.5rem; padding-right: 2.5rem;">
+                            Login
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+}
+

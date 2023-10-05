@@ -1,0 +1,46 @@
+﻿@model GestionaleSpedizioni.Models.AggiornamentoSpedizione
+
+<div class="container">
+    <h4>Aggiornamento Spedizione</h4>
+    <hr />
+    <dl class="dl-horizontal">
+       
+        <dt>
+            @Html.DisplayNameFor(model => model.Stato)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Stato)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Luogo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Luogo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descrizione)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descrizione)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataOra)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataOra)
+        </dd>
+
+       
+
+    </dl>
+</div>
+<p>
+   @Html.ActionLink("Aggiorna Stato", "AggiornaStato", "Spedizioni", new {id=Model.IdSpedizione},new {@class="btn btn.outline-danger"})
+</p>

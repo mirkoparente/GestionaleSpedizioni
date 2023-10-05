@@ -1,0 +1,42 @@
+﻿@model IEnumerable<GestionaleSpedizioni.Models.AggiornamentoSpedizione>
+
+
+    
+<table class="table mt-1">
+    <tr>
+      
+        <th>
+            @Html.DisplayNameFor(model => model.Stato)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Luogo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descrizione)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataOra)
+        </th>
+        
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+      
+        <td>
+            @Html.DisplayFor(modelItem => item.Stato)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Luogo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descrizione)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataOra)
+        </td>
+    </tr>
+}
+
+</table>
+

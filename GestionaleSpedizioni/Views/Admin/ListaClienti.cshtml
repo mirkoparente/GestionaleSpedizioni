@@ -1,0 +1,57 @@
+﻿@model List<GestionaleSpedizioni.Models.Clienti>
+
+@{
+    ViewBag.Title = "ListaClienti";
+}
+
+<h2 class="text-center my-3">ListaClienti</h2>
+
+@if (TempData["mess"] != null)
+{
+<p class="alert alert-success">@TempData["mess"]</p>
+
+}@if (TempData["messaggio"] != null)
+{
+
+<p class="alert alert-success">@TempData["messaggio"]</p>
+}
+
+<div class="container">
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Nominativo</th>
+                    <th scope="col">Codice Fiscale O PartitaIva</th>
+                    <th scope="col">Indirizzo</th>
+                    <th scope="col">Città</th>
+                    <th scope="col">Tipologia</th>
+                    <th scope="col"></th>
+                    <th scope="col">
+                        <a href="CreaCliente" class="text-decoration-none text-dark ">
+                            <i class="bi bi-person-plus-fill fs-4"></i>
+                        </a>
+                    </th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (GestionaleSpedizioni.Models.Clienti c in Model)
+                {
+                    <tr>
+                        <td class="text-capitalize">@c.Nome</td>
+                        <td class="text-uppercase">@c.CodiceFiscaleOPartitaIva</td>
+                        <td class="text-capitalize">@c.Indirizzo</td>
+                        <td class="text-capitalize">@c.Citta</td>
+                        <td class="text-capitalize">@c.Tipologia</td>
+                        <td></td>
+                        <td>
+                            @Html.ActionLink("Modifica", "ModificaCliente", new { id = c.IdClienti }, new { @class = "btn btn-outline-danger me-2 " })
+                            @Html.ActionLink("Elimina", "Elimina", new { id = c.IdClienti }, new { @class = "btn btn-outline-danger " })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
